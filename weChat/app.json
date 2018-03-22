@@ -11,16 +11,20 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar":{
-    "color":"#aaa",
-    "selectedColor":"#fff",
-    "backgroundColor":"#fff",
+    "color":"#dddddd",
+    "selectedColor":"#3cc51f",
+    "borderStyle":"white",
+    "backgroundColor":"#ffffff",
     "list":[{
       "pagePath":"pages/index/index",
-      "text":"555"
+      "iconPath":"image/1.jpg",
+      "selectedIconPath":"image/1.jpg",
+      "text":"pay"
     },{
-      "pagePath":"pages/index/index",
-      "text": "123"
+      "pagePath": "pages/index/index",
+      "iconPath": "image/2.jpg",
+      "selectedIconPath": "image/2.jpg",
+      "text": "go"
     }]
   }
-
 }
