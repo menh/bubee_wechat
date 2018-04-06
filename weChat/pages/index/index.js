@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list:[1,2,3]
+    list:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,7 +17,8 @@ Page({
     })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
+    this.getdata();
+   /* if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
@@ -42,7 +43,7 @@ Page({
           })
         }
       })
-    }
+    }*/
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -51,5 +52,31 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  getdata: function () {//定义函数名称
+    var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
+    wx.request({
+      url: 'http://localhost:8080/bubee/weChatGetPic.do',//请求地址
+      data: {//发送给后台的数据
+        name: "bella",
+        age: "20"
+      },
+      header: {//请求头
+        "Content-Type": "applciation/json"
+      },
+      method: "GET",//get为默认方法/POST
+      success: function (res) {
+        console.log(res.data.name);//res.data相当于ajax里面的data,为后台返回的数据
+        　　　　　　that.setData({list:res.data.list1})//如果在sucess直接写this就变成了wx.request()的this了.必须为getdata函数的this,不然无法重置调用函数
+                //that.setData({ movies: cache.movies, loading: false })
+          　　　　　//　logs: res.data.result
+          
+
+      },
+      fail: function (err) { },//请求失败
+      complete: function () { }//请求完成后执行的函数
+    })
+  },
+
+
 })

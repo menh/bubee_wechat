@@ -1,12 +1,11 @@
-<!--index.wxml-->
+<!--foodHome.wxml-->
 <view class="image_title">
   <image style="width:350px; height:150px; background-color:#eeeeee;" mode="{{item.mode}}" src="{{src}}"></image>
 </view>
-<view class="food" wx:for="{{list}}" wx:for-index="index"  wx:key="id">
+<view class="food" wx:for="{{list}}" wx:key="id">
   <view class="zan-card">
   <view class="zan-card__thumb">
-   <image class="zan-card__img"    src="{{item}}"    mode="aspectFit"></image>
-  <!--  <image class="zan-card__img"    src="http://localhost:8080/bubee/getFoodPic.do" mode="aspectFit"></image> -->
+  <!--  <image class="zan-card__img"    src="http://localhost:8080/test/login.html" mode="aspectFit"></image>
    <!-- <image class="zan-card__img"             src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg" mode="aspectFit"> 
     </image>  --> 
   </view>
@@ -26,11 +25,6 @@
   </view>
 </view>
 </view>
-
-
-
-
-
 <view class="bottom-title">
   <view class="zan-row">
     <view class="zan-col zan-col-16"> 
@@ -39,6 +33,5 @@
     <view class="zan-col zan-col-8"> 
       <view class="zan-icon zan-icon-balance-pay">111</view>
     </view>
-
   </view>
 </view>
