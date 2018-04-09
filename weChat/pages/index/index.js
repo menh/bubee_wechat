@@ -4,11 +4,54 @@ const app = getApp()
 
 Page({
   data: {
+    banners:[],
+    bentos:[],
+    orderList:[],
+    indicatorDots:true,
+    autoplay:true,
+    interval:5000,
+    duration:100,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     list:[]
+  },
+  bentoOrder:{
+    orderPrice:0,
+    orderNum:0,
+    bentoPic:""
+  },
+  getBannerList:function(){
+    var _this=this;
+    wx.request({
+      url: 'http://localhost:8080/bubee/getBannerList.do',
+      method:'GET',
+      success:function(res){
+        console.log("success");
+        console.log(res.data.banner);
+       // banners:res.data.banner;
+        _this.setData({ banners: res.data.banner })
+      }
+    })
+  },
+  getBentoList: function () {
+    var _this=this;
+    wx.request({
+      url: 'http://localhost:8080/bubee/getBentoList.do',
+      method: 'GET',
+      "Content-Type": "applciation/json",
+      success: function (res) {
+        console.log("success_getBentoList");
+        console.log(res.data.bento.BentoPic);
+        console.log(res.data.bento);
+        // banners:res.data.banner;
+        _this.setData({ bentos: res.data.bento })
+      }
+    })
+  },
+  AddToShoppingCar:function(){
+    var _this = this;
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,7 +60,9 @@ Page({
     })
   },
   onLoad: function () {
-    this.getdata();
+    this.getBannerList();
+    this.getBentoList();
+   // this.getdata();
    /* if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -1,5 +1,13 @@
 {
   "pages":[
+    "pages/index",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/address/address",
+    "pages/orders/orders",
+    "pages/details/details",
+    "pages/list/list",
     "pages/index/index",
     "pages/index/list",
     "pages/logs/logs"
@@ -7,24 +15,40 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "BENTO",
     "navigationBarTextStyle":"black"
   },
-  "tabBar":{
-    "color":"#dddddd",
-    "selectedColor":"#3cc51f",
-    "borderStyle":"white",
-    "backgroundColor":"#ffffff",
-    "list":[{
-      "pagePath":"pages/index/index",
-      "iconPath":"image/1.jpg",
-      "selectedIconPath":"image/1.jpg",
-      "text":"pay"
-    },{
-      "pagePath": "pages/index/index",
-      "iconPath": "image/2.jpg",
-      "selectedIconPath": "image/2.jpg",
-      "text": "go"
-    }]
-  }
+  "tabBar": {
+    "color": "#b7b7b7",
+    "selectedColor": "#AB956D",
+    "borderStyle": "#f5f5f5",
+    "backgroundColor": "#f5f5f5",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "iconPath": "image/12.png",
+        "selectedIconPath": "image/11.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "image/32.png",
+        "selectedIconPath": "image/31.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/42.png",
+        "selectedIconPath": "image/41.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
 }
